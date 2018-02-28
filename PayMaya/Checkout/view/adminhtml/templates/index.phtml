@@ -1,0 +1,21 @@
+<div class="page-main-actions">
+    <div class="page-actions-placeholder"></div>
+    <div class="page-actions" data-ui-id="page-actions-toolbar-content-header">
+        <div class="page-actions-inner" data-title="<?= __('Delete Log') ?>">
+            <div class="page-actions-buttons">
+                <button title="<?= __('Delete Log') ?>" type="button"
+                        class="action- scalable save primary ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                        onclick="location.href = '<?= $block->getDeleteUrl() ?>';"
+                        role="button" aria-disabled="false">
+                    <span class="ui-button-text">
+                        <span><?= __('Delete Log') ?></span>
+                    </span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="log_wrap" style="border: 1px solid #ccc; padding: 10px;">
+    <?= nl2br($block->getPaymentLog()) ?>
+</div>

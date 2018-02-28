@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="PayMaya_Checkout::checkout" title="PayMaya Checkout" translate="title" module="PayMaya_Checkout" sortOrder="80" dependsOnModule="PayMaya_Checkout" resource="PayMaya_Checkout::log"/>
+        <add id="PayMaya_Checkout::checkout_log" title="Payment Log" translate="title" module="PayMaya_Checkout" sortOrder="10" parent="PayMaya_Checkout::checkout" action="paymaya/checkout/" resource="PayMaya_Checkout::checkout"/>
+        <add id="PayMaya_Checkout::checkout_config" title="Configurable" translate="title" module="PayMaya_Checkout" sortOrder="20" parent="PayMaya_Checkout::checkout" action="adminhtml/system_config/edit/section/payment" resource="PayMaya_Checkout::checkout_config"/>
+    </menu>
+</config>

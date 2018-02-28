@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <paymaya_checkout>
+                <active>0</active>
+                <model>PayMaya\Checkout\Model\Payment</model>
+                <title>Credit card</title>
+                <instructions>Pay securely using your VISA and MasterCard credit, debit, or prepaid card.</instructions>
+                <allowspecific>0</allowspecific>
+            </paymaya_checkout>
+        </payment>
+    </default>
+</config>

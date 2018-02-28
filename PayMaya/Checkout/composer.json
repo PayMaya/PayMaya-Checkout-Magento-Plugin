@@ -1,0 +1,19 @@
+{
+  "name": "PayMaya Checkout",
+  "description": "PayMaya Checkout payment gateway support for Magento.",
+  "type": "magento2-module",
+  "version": "0.1.0",
+  "license": [
+    "OSL-3.0"
+  ],
+  "require": {
+  },
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "PayMaya\\Checkout\\": ""
+    }
+  }
+}
