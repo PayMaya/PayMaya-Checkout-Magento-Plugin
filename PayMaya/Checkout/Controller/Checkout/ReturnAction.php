@@ -20,6 +20,9 @@ class ReturnAction extends \Magento\Framework\App\Action\Action
         parent::__construct($context);
         $this->configPayment = $configPayment;
         $this->resultJsonFactory = $resultJsonFactory;
+        
+        // Bypass CSRF
+        $this->getRequest()->setParam('ajax', true)->setParam('isAjax', true);
     }
 
     public function execute()
