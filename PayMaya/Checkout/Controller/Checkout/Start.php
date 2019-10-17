@@ -119,7 +119,10 @@ class Start extends \Magento\Framework\App\Action\Action
         $totalAmount = new PayMayaItemAmount();
         $totalAmount->currency = $order_currency;
         $totalAmount->value = $this->configPayment->formatAmount($order->getGrandTotal());
-        $totalAmount->details = new PayMayaItemAmountDetails();
+        
+        $totalAmountDetails = new PayMayaItemAmountDetails();
+        $totalAmountDetails->shippingFee = $order->getShippingAmount();
+        $totalAmount->details = $totalAmountDetails;
 
         $checkout_token = $this->configPayment->createCheckoutToken();
 
