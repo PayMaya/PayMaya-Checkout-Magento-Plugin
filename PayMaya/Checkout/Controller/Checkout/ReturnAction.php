@@ -2,12 +2,15 @@
 
 namespace PayMaya\Checkout\Controller\Checkout;
 
+use Magento\Framework\App\CsrfAwareActionInterface;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\Request\InvalidRequestException;
 use Magento\Framework\App\Action\Context;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Sales\Model\Order;
 use PayMaya\Checkout\Model\ConfigPayment;
 
-class ReturnAction extends \Magento\Framework\App\Action\Action
+class ReturnAction extends \Magento\Framework\App\Action\Action implements CsrfAwareActionInterface
 {
     protected $configPayment;
     protected $resultJsonFactory;
@@ -86,4 +89,14 @@ class ReturnAction extends \Magento\Framework\App\Action\Action
         $result->setData(['message' => 'nop']);
         return $result;
     }
+    
+    public function createCsrfValidationException(RequestInterface $request): ?InvalidRequestException
+    {
+        return null;
+    }
+
+    public function validateForCsrf(RequestInterface $request): ?bool
+    {
+        return true;
+    }    
 }
