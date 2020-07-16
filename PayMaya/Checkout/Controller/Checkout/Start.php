@@ -119,7 +119,7 @@ class Start extends \Magento\Framework\App\Action\Action
         $totalAmount = new PayMayaItemAmount();
         $totalAmount->currency = $order_currency;
         $totalAmount->value = $this->configPayment->formatAmount($order->getGrandTotal());
-        
+
         $totalAmountDetails = new PayMayaItemAmountDetails();
         $totalAmountDetails->shippingFee = $order->getShippingAmount();
         $totalAmount->details = $totalAmountDetails;
@@ -128,11 +128,10 @@ class Start extends \Magento\Framework\App\Action\Action
 
         $checkout->totalAmount = $totalAmount;
         $checkout->requestReferenceNumber = $incrementId;
-        $response_url = $this->urlBuilder->getUrl('paymaya/checkout/response', ['increment_id' => $incrementId]);
         $checkout->redirectUrl = [
-            "success" => $response_url,
-            "failure" => $response_url,
-            "cancel"  => $response_url,
+            "success" => $this->urlBuilder->getUrl('paymaya/checkout/response', ['increment_id' => $incrementId, 'status' => 'success']),
+            "failure" => $this->urlBuilder->getUrl('paymaya/checkout/response', ['increment_id' => $incrementId, 'status' => 'failure']),
+            "cancel"  => $this->urlBuilder->getUrl('paymaya/checkout/response', ['increment_id' => $incrementId, 'status' => 'cancel']),
         ];
 
         $checkout->execute();
