@@ -72,7 +72,7 @@ class Start extends \Magento\Framework\App\Action\Action
         $addressBilling->line1 = isset($streets[0]) ? $streets[0] : '';
         $addressBilling->line2 = isset($streets[1]) ? $streets[1] : '';
         $addressBilling->city = $billingAddress->getCity();
-        $addressBilling->state = $billingAddress->getRegionCode();
+        $addressBilling->state = $billingAddress->getRegion();
         $addressBilling->zipCode = $billingAddress->getPostcode();
         $addressBilling->countryCode = $billingAddress->getCountryId();
 
@@ -81,7 +81,7 @@ class Start extends \Magento\Framework\App\Action\Action
         $addressShipping->line1 = isset($streets[0]) ? $streets[0] : '';
         $addressShipping->line2 = isset($streets[1]) ? $streets[1] : '';
         $addressShipping->city = $shippingAddress->getCity();
-        $addressShipping->state = $shippingAddress->getRegionCode();
+        $addressShipping->state = $shippingAddress->getRegion();
         $addressShipping->zipCode = $shippingAddress->getPostcode();
         $addressShipping->countryCode = $shippingAddress->getCountryId();
 
